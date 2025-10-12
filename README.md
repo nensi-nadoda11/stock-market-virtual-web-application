@@ -26,14 +26,14 @@ Others: Socket.io for live updates, JWT Authentication (if implemented)
 
 1. Backend:
 
-````bash
+```bash
 cd backend
 npm install
 npm start
 
 2.Frontend
-```bash
 cd frontend
 npm install
 npm start
-````
+
+```
