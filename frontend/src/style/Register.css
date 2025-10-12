@@ -1,0 +1,144 @@
+/* Register.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container3 {
+  display: flex;
+  height: 115vh;
+  width: 100%;
+}
+
+/* Left Section */
+.left-section4 {
+  flex: 1;
+   background-color:#03405c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border-right: 1px solid #eee;
+}
+
+.banner-img {
+  width: 70%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.left-text4 h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.left-text4 p {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Right Section */
+.right-section {
+  flex: 1;
+  background-color: #f9fafb;
+
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.logo3 {
+  width: 130px;
+  margin-bottom: 5px;
+  align-self: flex-start;
+  margin-top: -30px;
+  margin-left: -20px;
+}
+
+.form-title {
+  font-size: 22px;
+  color: #03405c;;
+  margin-bottom: 20px;
+  margin-top: -9px;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input-field {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+.input-field:focus {
+  border-color: #4f46e5;
+  outline: none;
+  box-shadow: 0 0 4px rgba(79, 70, 229, 0.3);
+}
+
+.otp-info {
+  font-size: 14px;
+  color: #374151;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  background-color: #03405c;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0f945e;
+}
+
+.message {
+  margin-top: 15px;
+  color: red;
+  font-size: 14px;
+}
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #333;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  z-index: 1000;
+  animation: fadeInOut 6s forwards;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+

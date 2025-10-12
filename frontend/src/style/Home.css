@@ -1,0 +1,130 @@
+.home-container {
+  padding: 20px;
+  background: #f9f9f9;
+  min-height: 100vh;
+  color: #111; /* light text */
+}
+
+.indices-section, .stocks-section {
+  margin-bottom: 40px;
+  color: rgb(33, 33, 99);
+}
+
+
+.indices-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.indice-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  color: #111;
+}
+
+.indice-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+.buy-btn {
+  margin-top: 10px;
+  background: green;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.sell-btn {
+  margin-top: 10px;
+  background: rgb(226, 63, 63);
+  margin-left: 20px;
+  margin-right: 25px;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.chart-btn {
+  margin-top: 10px;
+  background: white ;
+  color: navy;
+  border:none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  padding-left: 5px;
+  font-weight: bolder;
+  font-size: medium;
+}
+
+.indice-change.p  ositive {
+  color: green;
+}
+.indice-change.negative {
+  color: red;
+}
+
+.stocks-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.stocks-table th, .stocks-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.stocks-table th {
+  background: #0d1b2a;
+  color: white;
+}
+
+.price-up {
+  color: green;
+  font-weight: bold;
+}
+.price-down {
+  color: red;
+  font-weight: bold;
+}
+
+/* 🌙 Dark Theme Overrides */
+body.dark-theme .home-container {
+  background: #121212; /* dark bg */
+  color: #f1f1f1;      /* light text */
+}
+
+body.dark-theme .indice-card {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.6);
+}
+
+body.dark-theme .stocks-table {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.6);
+}
+
+body.dark-theme .stocks-table th {
+  background: #2d2d2d; /* dark header */
+  color: #f9f9f9;
+}
+
+body.dark-theme .stocks-table td {
+  border-bottom: 1px solid #333;
+}
+
+/* keep green/red colors same for up/down */

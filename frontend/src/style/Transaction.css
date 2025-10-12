@@ -1,0 +1,284 @@
+.transaction-container {
+  padding: 30px;
+  background: #f4f6f9;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.transaction-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.transaction-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table thead {
+  background: #f0f0f0;
+}
+
+.transaction-table th,
+.transaction-table td {
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 15px;
+}
+
+.transaction-table th {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #555;
+  border-bottom: 2px solid #ddd;
+}
+
+.transaction-table tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s;
+}
+
+.transaction-table tbody tr:hover {
+  background: #f9fafc;
+}
+
+.no-transaction {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-size: 16px;
+}
+
+/* Stock Symbol */
+.stock-symbol {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Buy / Sell Types */
+.buy-type {
+  font-weight: bold;
+  color: #2e7d32; /* green */
+}
+
+.sell-type {
+  font-weight: bold;
+  color: #c62828; /* red */
+}
+
+/* Buy / Sell Prices */
+.buy-price {
+  color: #2e7d32;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.sell-price {
+  color: #c62828;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+/* Arrow icon styling */
+.arrow-icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+}
+
+/* Smooth fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Delete buttons */
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #ff4d4d;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #cc0000;
+  transform: scale(1.2);
+}
+
+.delete-all-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ff4d4d;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.delete-all-btn:hover {
+  color: #cc0000;
+  transform: scale(1.2);
+}
+
+/* Popup overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Popup card */
+.popup-card {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: popupFade 0.3s ease;
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Popup actions */
+.popup-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.popup-yes,
+.popup-no {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.popup-yes {
+  background: #28a745;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.popup-yes:hover {
+  background: #218838;
+}
+
+.popup-no {
+  background: #dc3545;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.popup-no:hover {
+  background: #c82333;
+}
+/* 🌙 Dark Theme Overrides */
+body.dark-theme .transaction-container {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-theme .transaction-card {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-theme .transaction-title {
+  color: #f9f9f9;
+  border-bottom: 2px solid #333;
+}
+
+body.dark-theme .transaction-table {
+  color: #f1f1f1;
+}
+
+body.dark-theme .transaction-table thead {
+  background: #2d2d2d;
+}
+
+body.dark-theme .transaction-table th {
+  color: #e0e0e0;
+  border-bottom: 2px solid #444;
+}
+
+body.dark-theme .transaction-table td {
+  border-bottom: 1px solid #333;
+}
+
+body.dark-theme .transaction-table tbody tr:hover {
+  background: #2a2a2a;
+}
+
+body.dark-theme .no-transaction {
+  color: #aaa;
+}
+
+body.dark-theme .stock-symbol {
+  color: #f1f1f1;
+}
+
+/* Buy / Sell colors remain same */
+body.dark-theme .buy-type, 
+body.dark-theme .buy-price {
+  color: #16a34a;
+}
+
+body.dark-theme .sell-type, 
+body.dark-theme .sell-price {
+  color: #dc2626;
+}
+
+/* Popup */
+body.dark-theme .popup-card {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}

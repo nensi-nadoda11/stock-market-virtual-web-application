@@ -1,0 +1,100 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.applications-box {
+  width: 90%;
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #0a192f;
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.applications-table th, .applications-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.applications-table th {
+  background: #f0f0f0;
+}
+
+.status {
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.allotted {
+  background: #d4f7dc;
+  color: #1b5e20;
+}
+
+.status.rejected {
+  background: #fddede;
+  color: #b71c1c;
+}
+
+.status.partially_allotted {
+  background: #fff5e6;
+  color: #b36b00;
+}
+
+.status.refunded {
+  background: #e0f7fa;
+  color: #006064;
+}
+.view-apps-btn{
+  background:#1b5e20 ;
+  color: #e0f7fa;
+  height: 40px;
+  width: 160px;
+  font-size: 16px;
+  border: 1px #1b5e20 solid ;
+  border-radius: 10px;
+}
+.view-apps-btn:hover{
+  background:white ;
+  color: #1b5e20 ;
+}

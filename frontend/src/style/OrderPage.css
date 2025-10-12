@@ -1,0 +1,189 @@
+.orders-page {
+  padding: 20px;
+  background: #f9f9f9; /* light bg */
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #111; /* light text */
+}
+
+.orders-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.orders-page table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.orders-page th, .orders-page td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.orders-page th {
+  background: #0d1b2a;
+  color: #fff;
+  font-weight: 600;
+}
+
+.orders-page tr:hover {
+  background-color: #f1f5f9;
+  cursor: pointer;
+}
+
+.orders-page tr.executed {
+  background-color: #d1fae5;
+  color: #065f46;
+  font-weight: bold;
+}
+
+.orders-page tr.cancelled {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+/* 🌙 Dark Theme Overrides */
+body.dark-theme .orders-page {
+  background: #121212;
+  color: #f1f1f1;
+}
+body.dark-theme .orders-page h2 {
+  
+  color: #f1f1f1;
+}
+
+body.dark-theme .orders-page table {
+  background: #1e1e1e;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.6);
+}
+
+body.dark-theme .orders-page th {
+  background: #2d2d2d;
+  color: #f9f9f9;
+}
+
+body.dark-theme .orders-page td {
+  border-bottom: 1px solid #333;
+}
+
+body.dark-theme .orders-page tr:hover {
+  background-color: #2a2a2a;
+}
+
+/* keep executed/cancelled colors same for both themes */
+/* --- Modify Order Button --- */
+.modify-btn {
+  background-color: #0d6efd;
+  color: white;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modify-btn:hover {
+  background-color: #084298;
+}
+
+/* --- Modal Overlay --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* --- Modal Card --- */
+.modal-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input Fields */
+.modal-card input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Modal Buttons */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modify-confirm-btn {
+  background-color: green;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modify-confirm-btn:hover {
+  background-color: darkgreen;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: black;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #999;
+}
+
+/* --- Dark Theme --- */
+body.dark-theme .modal-card {
+  background: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark-theme .modal-card input {
+  background: #333;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body.dark-theme .modify-confirm-btn {
+  background-color: #28a745;
+}
+
+body.dark-theme .modify-confirm-btn:hover {
+  background-color: #1e7e34;
+}
+
+body.dark-theme .cancel-btn {
+  background-color: #555;
+}
+
+body.dark-theme .cancel-btn:hover {
+  background-color: #444;
+}

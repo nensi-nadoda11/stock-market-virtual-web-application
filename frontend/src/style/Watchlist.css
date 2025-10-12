@@ -1,0 +1,138 @@
+/* 🌞 Light Theme (Default) */
+.watchlist-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  color: #000;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.watchlist-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0d47a1; /* blue for light theme heading */
+}
+
+.empty-msg {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.watchlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: #fff;
+}
+
+.watchlist-table th,
+.watchlist-table td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  color: #000;
+}
+
+.watchlist-table th {
+  background: #f5f5f5;
+  color: #0d47a1;
+  font-size: 16px;
+}
+
+.price-up {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.price-down {
+  color: #c62828;
+  font-weight: bold;
+}
+
+.remove-btn {
+  background: #e53935;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remove-btn:hover {
+  background: #b71c1c;
+}
+
+.clear-btn {
+  background: #ffeb3b;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: 0.3s;
+}
+
+.clear-btn:hover {
+  background: #fbc02d;
+}
+
+/* 🌙 Dark Theme Overrides */
+body.dark-theme .watchlist-container {
+  background: #1c1c1c;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-theme .watchlist-container h2 {
+  color: #00e676; /* neon green heading */
+}
+
+body.dark-theme .empty-msg {
+  color: #bbb;
+}
+
+body.dark-theme .watchlist-table {
+  background: #1c1c1c;
+}
+
+body.dark-theme .watchlist-table th,
+body.dark-theme .watchlist-table td {
+  border-bottom: 1px solid #444;
+  color: #fff;
+}
+
+body.dark-theme .watchlist-table th {
+  background: #2a2a2a;
+  color: #00e676;
+}
+
+body.dark-theme .price-up {
+  color: #4caf50;
+}
+
+body.dark-theme .price-down {
+  color: #e53935;
+}
+
+body.dark-theme .remove-btn {
+  background: #ff5252;
+}
+
+body.dark-theme .remove-btn:hover {
+  background: #ff1744;
+}
+
+body.dark-theme .clear-btn {
+  background: #fdd835;
+  color: #000;
+}
+
+body.dark-theme .clear-btn:hover {
+  background: #fbc02d;
+}

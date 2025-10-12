@@ -1,0 +1,179 @@
+/* Base Theme */
+body.light-theme {
+  --bg-color: #f5f7fa;
+  --text-color: #333;
+  --card-color: #ffffff;
+  --primary-color: #4f46e5;
+  --danger-color: #ef4444;
+  --border-color: #e5e7eb;
+}
+
+body.dark-theme {
+  --bg-color: #1f2937;
+  --text-color: #f9fafb;
+  --card-color: #111827;
+  --primary-color: #6366f1;
+  --danger-color: #f87171;
+  --border-color: #374151;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Sections */
+.wallet-section, .theme-section, .profile-section, .account-section, .action-section {
+  background: var(--card-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wallet-section:hover, .theme-section:hover, .profile-section:hover, .account-section:hover, .action-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.wallet-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+.btn.danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn.danger-outline {
+  border: 2px solid var(--danger-color);
+  color: var(--danger-color);
+  background: transparent;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Theme radio buttons */
+.theme-section label {
+  display: block;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal {
+  background: var(--card-color);
+  padding: 2rem;
+  border-radius: 16px;
+  min-width: 300px;
+  font-size: 19px;
+  color: #03405c;
+  max-width: 500px;
+  font-weight: bold;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  animation: scaleIn 0.3s ease forwards;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Messages */
+.msg {
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.msg.success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.msg.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.close-msg {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes scaleIn {
+  from {transform: scale(0.8);}
+  to {transform: scale(1);}
+}
+
+/* Responsive */
+@media(max-width: 600px){
+  .profile-container {
+    grid-template-columns: 1fr;
+  }
+}

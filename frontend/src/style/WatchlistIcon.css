@@ -1,0 +1,18 @@
+.star-icon {
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.star-icon.empty {
+  color: #bbb; /* gray for empty */
+}
+
+.star-icon.filled {
+  color: gold; /* yellow for filled */
+}
+
+.star-icon:hover {
+  transform: scale(1.2);
+  color: orange;
+}

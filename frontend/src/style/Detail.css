@@ -1,0 +1,93 @@
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* === Background Container === */
+.detail-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+  color: #f5f5f5;
+  padding: 20px;
+}
+
+/* === Card Style === */
+.detail-card {
+  background: #111;
+  border-radius: 18px;
+  box-shadow: 0 0 20px rgba(0, 255, 150, 0.15);
+  padding: 40px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.detail-card:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 180, 0.3);
+  transform: translateY(-5px);
+}
+
+/* === Heading === */
+.detail-heading {
+  font-size: 1.8rem;
+  color: #00ff9d;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #00ff9d;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* === Info Section === */
+.detail-info p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #e2e2e2;
+  letter-spacing: 0.5px;
+}
+
+.detail-info span {
+  font-weight: 600;
+  color: #00ff9d;
+  margin-right: 6px;
+}
+
+/* === Button === */
+.detail-btn {
+  background: #00ff9d;
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 30px;
+  margin-top: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.detail-btn:hover {
+  background: #00cc7a;
+  transform: scale(1.05);
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+  .detail-card {
+    padding: 30px 20px;
+  }
+
+  .detail-heading {
+    font-size: 1.5rem;
+  }
+
+  .detail-info p {
+    font-size: 1rem;
+  }
+}

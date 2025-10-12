@@ -1,0 +1,162 @@
+.ipo-page {
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.ipo-container {
+  padding: 20px;
+}
+
+.ipo-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #0a192f;
+}
+
+.ipo-loading {
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+}
+
+.ipo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.ipo-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  width: 260px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.ipo-card:hover {
+  transform: translateY(-5px);
+}
+
+.ipo-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #0a192f;
+}
+
+.ipo-info {
+  font-size: 14px;
+
+  color: #333;
+}
+
+.ipo-status {
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.ipo-status.open {
+  background: #d4f7dc;
+  color: #1b5e20;
+}
+
+.ipo-status.closed {
+  background: #fddede;
+  color: #b71c1c;
+}
+
+.apply-btn {
+  margin-top: 13px;
+  padding: 9px 16px;
+  background: #0a192f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.apply-btn:hover {
+  background: #0f945e;
+  color: white;
+}
+
+.no-ipo {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  margin-top: 40px;
+}
+.ipo-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.ipo-tab {
+  padding: 10px 18px;
+  border: 1px solid #0a192f;
+  background: white;
+  color: #0a192f;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.ipo-tab.active {
+  background: #0a192f;
+  color: white;
+}
+
+.ipo-tab:hover {
+  background: #0f945e;
+  color: white;
+}
+body.dark-theme .ipo-page{
+  background-color: #1e1e1e;
+}
+body.dark-theme .ipo-title{
+  color: white;
+}
+body.dark-theme .ipo-card {
+  background-color: black;
+  border: black;
+  box-shadow: white;
+}
+body.dark-theme .ipo-name{
+  color: white;
+}
+body.dark-theme .ipo-info{
+  color: #f5f7fa;
+}
+body.dark-theme .ipo-status.open {
+  background: #d4f7dc;
+  color: #1b5e20;
+}
+
+body.dark-theme .ipo-status.closed {
+  background: #fddede;
+  color: #b71c1c;
+}
+body.dark-theme .apply-btn{
+  background-color: white;
+  color: black;
+}
+body.dark-theme .apply-btn:hover {
+  background: #0f945e;
+  color: white;
+}
+body.dark-theme .no-ipo{
+  color: white;
+}
+body.dark-theme .ipo-tab{
+  background-color: black;
+  color: white;
+}
