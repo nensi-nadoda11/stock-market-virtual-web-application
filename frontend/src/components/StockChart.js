@@ -10,15 +10,14 @@ const StockChartPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const chartContainer = useRef(null);
+  const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
   // Data fetch
   useEffect(() => {
     const fetchChartData = async (e) => {
       //   e.preventDefault()
       try {
-        const res = await axios.get(
-          `http://localhost:5000/stockchart/${symbol}/chart`
-        );
+        const res = await axios.get(`${API}/stockchart/${symbol}/chart`);
         console.log(res.data);
         setChartData(res.data.chartData || []);
         setLoading(false);

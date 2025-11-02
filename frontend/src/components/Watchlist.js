@@ -1,17 +1,19 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { io } from 'socket.io-client';
-import '../style/Watchlist.css';
+import { io } from "socket.io-client";
+import "../style/Watchlist.css";
 import Navbar from "./Navbar";
 
+const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 // Socket connection
-const socket = io('http://localhost:5000', {
-  transports:["websocket"]
+const socket = io(`${API}`, {
+  transports: ["websocket"],
 });
 
-function WatchlistPage(){
-  const [watchlist,setWatchlist] = useState([]);
-  const token = sessionStorage.getItem('token');
+function WatchlistPage() {
+  const [watchlist, setWatchlist] = useState([]);
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
     const handleStockUpdate = (updatedStock) => {
@@ -19,11 +21,14 @@ function WatchlistPage(){
 
       setWatchlist((prev) =>
         prev.map((stock) =>
-          stock.stockSymbol.toUpperCase() === updatedStock.stockSymbol.toUpperCase()
+          stock.stockSymbol.toUpperCase() ===
+          updatedStock.stockSymbol.toUpperCase()
             ? {
                 ...stock,
-                previousPrice: Number(stock.previousPrice || stock.currentPrice),// ✅ old price save
-                currentPrice: Number(updatedStock.currentPrice) // ✅ new price set
+                previousPrice: Number(
+                  stock.previousPrice || stock.currentPrice
+                ), // ✅ old price save
+                currentPrice: Number(updatedStock.currentPrice), // ✅ new price set
               }
             : stock
         )
@@ -32,63 +37,59 @@ function WatchlistPage(){
 
     socket.on("stockUpdated", handleStockUpdate);
     return () => socket.off("stockUpdated", handleStockUpdate);
-  }, []);   // ✅ dependency [] ताकि बार-बार listener न लगे
+  }, []); // ✅ dependency [] ताकि बार-बार listener न लगे
 
   // Fetch initial watchlist
-  useEffect(()=>{
-    const fetchWatchlist = async()=>{
-      try{
-        const token = sessionStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/watchlist/list', {
-          headers:{Authorization:`Bearer ${token}`}
+  useEffect(() => {
+    const fetchWatchlist = async () => {
+      try {
+        const token = sessionStorage.getItem("token");
+        const res = await axios.get(`${API}/watchlist/list`, {
+          headers: { Authorization: `Bearer ${token}` },
         });
         setWatchlist(res.data.watchlist || []);
-        console.log("data of list",res.data.watchlist)
-      }
-      catch(error){
+        console.log("data of list", res.data.watchlist);
+      } catch (error) {
         console.error("Error fetching watchlist", error);
       }
-    }
+    };
     fetchWatchlist();
   }, []);
 
   // Remove single stock
-  const removeStock = async(id) => {
-    try{
-      await axios.delete(`http://localhost:5000/watchlist/${id}`, {
-        headers:{Authorization:`Bearer ${token}`}
+  const removeStock = async (id) => {
+    try {
+      await axios.delete(`${API}/watchlist/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
       });
-      setWatchlist((prev)=>prev.filter((stock)=>stock._id !== id));
-    }
-    catch(error){
+      setWatchlist((prev) => prev.filter((stock) => stock._id !== id));
+    } catch (error) {
       console.error("Error removing stock", error);
     }
-  }
+  };
 
   // Clear all watchlist
-  const clearWatchlist = async() => {
-    try{
-      console.log("clear")
-      const res=  await axios.delete("http://localhost:5000/watchlist/clear", {
-        headers:{Authorization:`Bearer ${token}`}
+  const clearWatchlist = async () => {
+    try {
+      console.log("clear");
+      const res = await axios.delete(`${API}/watchlist/clear`, {
+        headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("res",res)
+      console.log("res", res);
       setWatchlist([]);
-    }catch(error){
+    } catch (error) {
       console.error("Error clearing watchlist:", error.message);
     }
-  }
+  };
 
-  return(
+  return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className="watchlist-container">
         <h2>Your Watchlist</h2>
 
         {watchlist.length === 0 ? (
-          <p className="empty-msg">
-            Your watchlist is empty
-          </p>
+          <p className="empty-msg">Your watchlist is empty</p>
         ) : (
           <>
             <table className="watchlist-table">
@@ -100,30 +101,43 @@ function WatchlistPage(){
                 </tr>
               </thead>
               <tbody>
-               { watchlist.map((stock) => (
+                {watchlist.map((stock) => (
                   <tr key={stock._id}>
                     <td>{stock.stockSymbol}</td>
                     <td
-                     className={
-                        stock.previousPrice && Number(stock.currentPrice) > Number(stock.previousPrice) ?
-                        "price-up" : stock.previousPrice && 
-                           Number(stock.currentPrice) < Number(stock.previousPrice) ?"price-down"
-                               :""
+                      className={
+                        stock.previousPrice &&
+                        Number(stock.currentPrice) > Number(stock.previousPrice)
+                          ? "price-up"
+                          : stock.previousPrice &&
+                            Number(stock.currentPrice) <
+                              Number(stock.previousPrice)
+                          ? "price-down"
+                          : ""
                       }
                     >
                       ₹{Number(stock.currentPrice).toFixed(2)}
-                      {stock.previousPrice && (Number(stock.currentPrice) > Number(stock.previousPrice) ? " ▲" :" ▼")}
+                      {stock.previousPrice &&
+                        (Number(stock.currentPrice) >
+                        Number(stock.previousPrice)
+                          ? " ▲"
+                          : " ▼")}
                     </td>
                     <td>
                       <button
                         className="remove-btn"
-                        onClick={()=>removeStock(stock._id)}>Remove</button>
+                        onClick={() => removeStock(stock._id)}
+                      >
+                        Remove
+                      </button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <button className="clear-btn" onClick={clearWatchlist}>Clear All</button>
+            <button className="clear-btn" onClick={clearWatchlist}>
+              Clear All
+            </button>
           </>
         )}
       </div>

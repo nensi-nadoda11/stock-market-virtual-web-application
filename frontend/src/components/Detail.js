@@ -8,13 +8,14 @@ const Detail = () => {
   const [dpType, setDpType] = useState("");
 
   const navigate = useNavigate();
+  const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
   useEffect(() => {
     //  e.preventDefault()
     const userId = sessionStorage.getItem("userId");
     const fetchDetail = async () => {
       try {
-        const res = await fetch("http://localhost:5000/kyc/user-kyc-detail", {
+        const res = await fetch(`${API}/kyc/user-kyc-detail`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId }),

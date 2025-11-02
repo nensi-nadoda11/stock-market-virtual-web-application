@@ -10,11 +10,12 @@ const IPOPage = () => {
   const [selectedIpo, setSelectedIpo] = useState(null);
   const [activeTab, setActiveTab] = useState("open"); // default open
   const [showApplications, setShowApplications] = useState(false); // naya state
+  const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
   useEffect(() => {
     const fetchIpos = async () => {
       try {
-        const res = await fetch("http://localhost:5000/ipo");
+        const res = await fetch(`${API}/ipo`);
         const data = await res.json();
         if (data) setIpos(data.data);
         else setIpos([]);
@@ -30,10 +31,10 @@ const IPOPage = () => {
 
   // Filter IPOs based on tab
   //const filteredIpos = ipos.filter((ipo) => ipo.status.toLowerCase() === activeTab);
-// Filter IPOs based on tab
-const filteredIpos = Array.isArray(ipos)
-  ? ipos.filter((ipo) => ipo.status.toLowerCase() === activeTab)
-  : [];
+  // Filter IPOs based on tab
+  const filteredIpos = Array.isArray(ipos)
+    ? ipos.filter((ipo) => ipo.status.toLowerCase() === activeTab)
+    : [];
 
   return (
     <div className="ipo-page">
@@ -67,8 +68,9 @@ const filteredIpos = Array.isArray(ipos)
         <div style={{ textAlign: "center", margin: "15px 0" }}>
           <button
             className="view-apps-btn"
-            onClick={() => setShowApplications(true)}>
-              {console.log("true or false",showApplications)}
+            onClick={() => setShowApplications(true)}
+          >
+            {console.log("true or false", showApplications)}
             My Applications
           </button>
         </div>

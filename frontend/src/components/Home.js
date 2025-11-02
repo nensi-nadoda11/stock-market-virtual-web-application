@@ -7,8 +7,9 @@ import "../style/Home.css";
 import "../style/WatchlistIcon.css";
 import TradeModal from "./TradeModel";
 //import { FaChartBar } from "react-icons/fa";
+const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
-const socket = io("http://localhost:5000");
+const socket = io(`${API}`);
 
 function Home() {
   const [stocks, setStocks] = useState([]);
@@ -23,12 +24,12 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/stock/home");
+        const res = await axios.get(`${API}/stock/home`);
         setStocks(res.data.data.stocks || []);
         setIndices(res.data.data.indices || []);
 
         const token = sessionStorage.getItem("token");
-        const wlres = await axios.get(`http://localhost:5000/watchlist/list`, {
+        const wlres = await axios.get(`${API}/watchlist/list`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setWatchlist(wlres.data.watchlist || []);
@@ -70,7 +71,7 @@ function Home() {
     try {
       if (isInWatchlist(stock.symbol)) {
         const item = watchlist.find((w) => w.stockSymbol === stock.symbol);
-        await axios.delete(`http://localhost:5000/watchlist/${item._id}`, {
+        await axios.delete(`${API}/watchlist/${item._id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setWatchlist((prev) =>
@@ -78,7 +79,7 @@ function Home() {
         );
       } else {
         const res = await axios.post(
-          "http://localhost:5000/watchlist/add",
+          `${API}/watchlist/add`,
           { stockSymbol: stock.symbol },
           { headers: { Authorization: `Bearer ${token}` } }
         );

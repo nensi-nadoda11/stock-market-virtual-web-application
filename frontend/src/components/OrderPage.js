@@ -4,7 +4,8 @@ import "../style/OrderPage.css";
 import axios from "axios";
 import Navbar from "./Navbar";
 
-const socket = io("http://localhost:5000");
+const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const socket = io(`${API}`);
 
 function OrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -16,7 +17,7 @@ function OrdersPage() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/trade/orders", {
+      const res = await axios.get(`${API}/trade/orders`, {
         headers: { Authorization: `Bearer ${sessionStorage.getItem("token")}` },
       });
       setOrders(res.data.orders);
@@ -32,7 +33,11 @@ function OrdersPage() {
       setOrders((prev) =>
         prev.map((o) =>
           o._id === update.orderId
-            ? { ...o, status: update.status, executionPrice: update.executionPrice }
+            ? {
+                ...o,
+                status: update.status,
+                executionPrice: update.executionPrice,
+              }
             : o
         )
       );
@@ -53,14 +58,16 @@ function OrdersPage() {
     if (!modQuantity || modQuantity <= 0) return alert("Enter valid quantity");
     try {
       const res = await axios.put(
-        `http://localhost:5000/trade/orders/${selectedOrder._id}/modify`,
+        `${API}/trade/orders/${selectedOrder._id}/modify`,
         {
           quantity: Number(modQuantity),
           limitPrice: Number(modLimitPrice),
           stopLossPrice: modStopLossPrice ? Number(modStopLossPrice) : null,
         },
         {
-          headers: { Authorization: `Bearer ${sessionStorage.getItem("token")}` },
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
         }
       );
       alert(res.data.message);
@@ -111,7 +118,10 @@ function OrdersPage() {
                 <td>{order.executionPrice || "-"}</td>
                 <td>
                   {order.status === "PENDING" && (
-                    <button className="modify-btn" onClick={() => openModifyModal(order)}>
+                    <button
+                      className="modify-btn"
+                      onClick={() => openModifyModal(order)}
+                    >
                       Modify
                     </button>
                   )}
@@ -146,10 +156,16 @@ function OrdersPage() {
               onChange={(e) => setModStopLossPrice(e.target.value)}
             />
             <div className="modal-actions">
-              <button className="modify-confirm-btn" onClick={handleModifyOrder}>
+              <button
+                className="modify-confirm-btn"
+                onClick={handleModifyOrder}
+              >
                 Update
               </button>
-              <button className="cancel-btn" onClick={() => setModifyModalOpen(false)}>
+              <button
+                className="cancel-btn"
+                onClick={() => setModifyModalOpen(false)}
+              >
                 Cancel
               </button>
             </div>
