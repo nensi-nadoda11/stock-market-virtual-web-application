@@ -1,4 +1,4 @@
-const Watchlist = require("../models/Watchlist");
+const Watchlist = require("../models/watchList");
 const Stock = require("../models/Stock");
 const socket = require("../services/socket_io");
 
